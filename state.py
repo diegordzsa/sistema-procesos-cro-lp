@@ -17,10 +17,3 @@ def save_state(state):
         json.dump(state, f, ensure_ascii=False, indent=2)
 
 
-def cleanup_alerted(alerted, current_tasks, is_aprobado_fn):
-    """Remove task IDs from alerted if they no longer exist or left APROBADO."""
-    still_valid = []
-    for task_id in alerted:
-        if task_id in current_tasks and is_aprobado_fn(current_tasks[task_id]["status"]):
-            still_valid.append(task_id)
-    return still_valid
