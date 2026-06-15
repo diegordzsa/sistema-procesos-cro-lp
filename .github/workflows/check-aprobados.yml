@@ -1,9 +1,9 @@
 name: Check Aprobados
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '*/5 * * * *'
-  workflow_dispatch:
 
 concurrency:
   group: check-aprobados
